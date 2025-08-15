@@ -15,13 +15,13 @@ public enum BrowserFactory {
     FIREFOX{
          @Override
          public Browser createInstance(final Playwright playwright) {
-            return playwright.chromium().launch(options());
+            return playwright.firefox().launch(options());
          }
     },
     WEBKIT{
         @Override
         public Browser createInstance(final Playwright playwright) {
-            return playwright.chromium().launch(options());
+            return playwright.webkit().launch(options());
         }
     };
 
@@ -32,5 +32,5 @@ public enum BrowserFactory {
     }
 
 
-    public abstract Browser createInstance(Playwright playwright);
+    public abstract Browser createInstance(final Playwright playwright);
 }
