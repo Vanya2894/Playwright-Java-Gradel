@@ -4,7 +4,7 @@ import com.microsoft.playwright.Page;
 
 import static com.config.ConfigurationManager.config;
 
-public class BasePage {
+public abstract class BasePage {
     protected Page page;
 
     public void setAndConfigurePage(final Page page){
@@ -12,7 +12,7 @@ public class BasePage {
         page.setDefaultTimeout(config().timeOut());
     }
 
-    public void initCimponents(){}
+    public void initComponents(){}
 
 
 }
