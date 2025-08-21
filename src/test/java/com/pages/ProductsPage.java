@@ -1,9 +1,21 @@
 package com.pages;
 
+import com.components.Header;
+import com.components.SideNavMenu;
 import com.microsoft.playwright.Locator;
 import io.qameta.allure.Step;
 
 public final class ProductsPage extends BasePage{
+
+    private Header header;
+    private SideNavMenu sideNavMenu;
+
+    @Override
+    public void initComponents() {
+        header = new Header(page);
+        sideNavMenu = new SideNavMenu(page);
+
+    }
 
     @Step("Get title of the 'Products' page")
     public Locator getTitle(){
