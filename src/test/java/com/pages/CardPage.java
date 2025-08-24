@@ -15,7 +15,7 @@ public final class CardPage extends BasePage {
 
     @Step("Get item name")
     public Locator getItems(){
-        return page.locator("//div[@class='cart_list']//div[@class='inventory-item_name']");
+        return page.locator("//div[@class='cart_list']//div[@class='inventory_item_name']");
     }
 
     @Step("Click on checkout button")
@@ -24,11 +24,17 @@ public final class CardPage extends BasePage {
         return this;
     }
 
-    @Step("Click continue button")
+    @Step("Fill ship information <shipInfo>")
     public CardPage fillInfo(ShipInfo shipInfo){
-        page.fill("//input[@data-test='firstName']", shipInfo.getFirstname());
-        page.fill("//input[@data-test='Lastname']", shipInfo.getLastname());
+        page.fill("//input[@data-test='firstName']", shipInfo.getFirstName());
+        page.fill("#last-name", shipInfo.getLastName());
         page.fill("//input[@data-test='postalCode']", shipInfo.getZip());
+        return this;
+    }
+
+    @Step("Click continue button")
+    public CardPage clickOnContinue(){
+        page.locator("//input[@data-test='continue']").click();
         return this;
     }
 

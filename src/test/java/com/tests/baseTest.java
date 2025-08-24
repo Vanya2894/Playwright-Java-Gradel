@@ -19,7 +19,7 @@ import java.util.Optional;
 import static com.config.ConfigurationManager.config;
 import static com.github.automatedowl.tools.AllureEnvironmentWriter.allureEnvironmentWriter;
 
-
+@TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public abstract class baseTest {
     protected static Playwright playwright;
     protected static Browser browser;
@@ -34,7 +34,7 @@ public abstract class baseTest {
             context -> {
                 Optional<Throwable> exception = context.getExecutionException();
                 if (exception.isPresent()) {
-                    needVideo = false;
+                    needVideo = true;
                     captureScreenshotOnFailure();
                 }
             };
@@ -107,7 +107,7 @@ public abstract class baseTest {
     }
 
     @AfterAll
-    public static void close() {
+    public void close() {
         browser.close();
         playwright.close();
     }

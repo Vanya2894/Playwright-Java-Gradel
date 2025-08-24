@@ -6,7 +6,7 @@ import lombok.Data;
 @Data
 @Builder
 public class ShipInfo {
-    private String firstname;
-    private String Lastname;
+    private String firstName;
+    private String lastName;
     private String zip;
 }

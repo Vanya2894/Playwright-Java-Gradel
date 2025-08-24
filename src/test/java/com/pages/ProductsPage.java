@@ -25,18 +25,18 @@ public final class ProductsPage extends BasePage{
 
     @Step("Get all products names")
     public Locator getProductNames(){
-        return page.locator(".//div[@data-test='inventory-item-name']");
+        return page.locator("//div[@data-test='inventory-item-name']");
     }
 
     @Step("Set <sortName> into 'Sort Filter'")
     public ProductsPage setSortFilter(String sortName){
-        page.locator("select[@data-test='product-sort-container']").selectOption(sortName);
+        page.locator("//select[@data-test='product-sort-container']").selectOption(sortName);
         return this;
     }
 
     @Step("Add to cart item with name <itemName>")
     public ProductsPage addItemToCart(String itemName){
-        page.locator(String.format("//div[text()=%s]//following::button[1]",itemName)).click();
+        page.locator(String.format("//div[text()='%s']//following::button[1]",itemName)).click();
         return this;
     }
 
