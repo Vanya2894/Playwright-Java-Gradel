@@ -14,4 +14,8 @@ public final class Header extends BaseComponent{
     public void clickOnHamburgerIcon(){
         page.click("#react-burger-menu-btn");
     }
+
+    public void clickOnCart(){
+        page.locator("//a[@data-test='shopping-cart-link']").click();
+    }
 }

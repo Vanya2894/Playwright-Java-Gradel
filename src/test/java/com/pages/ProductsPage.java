@@ -3,6 +3,7 @@ package com.pages;
 import com.components.Header;
 import com.components.SideNavMenu;
 import com.microsoft.playwright.Locator;
+import com.utils.BasePageFactory;
 import io.qameta.allure.Step;
 
 public final class ProductsPage extends BasePage{
@@ -37,5 +38,17 @@ public final class ProductsPage extends BasePage{
     public ProductsPage addItemToCart(String itemName){
         page.locator(String.format("//div[text()=%s]//following::button[1]",itemName)).click();
         return this;
+    }
+
+    public CardPage clickOnCart(){
+        header.clickOnCart();
+        return BasePageFactory.createInstance(page, CardPage.class);
+    }
+
+    public LoginPage clickOnLogout(){
+        header.clickOnHamburgerIcon();
+        sideNavMenu.clickOnLogout();
+
+        return BasePageFactory.createInstance(page, LoginPage.class);
     }
 }

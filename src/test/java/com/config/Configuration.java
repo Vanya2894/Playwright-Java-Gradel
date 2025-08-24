@@ -19,6 +19,9 @@ public interface Configuration extends Config {
 
     @Key("slow.motion")
     int slowMotion();
+
+    @Key("timeOut")
+    @DefaultValue("10000")
     int timeOut();
     boolean video();
 }
